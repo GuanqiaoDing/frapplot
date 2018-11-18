@@ -2,3 +2,8 @@
 
 export(frapplot)
 export(frapprocess)
+
+importFrom("grDevices", "dev.off", "pdf")
+importFrom("graphics", "arrows", "axis", "legend", "lines", "par", "plot", "points")
+importFrom("stats", "coef", "lm", "nls", "predict", "sd")
+importFrom("utils", "read.table", "write.table")

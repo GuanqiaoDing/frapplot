@@ -1,11 +1,11 @@
 Package: frapplot
 Type: Package
-Title: Data Processing and Visualization for FRAP
+Title: Automatic Data Processing and Visualization for FRAP
 Version: 0.1
 Author: Guanqiao Ding <gding16@gmail.com>
 Maintainer: Guanqiao Ding <gding16@gmail.com>
-Description: Frapplot aims to automatically process Fluorescence Recovery After Photobleaching (FRAP) data after ImageJ quantification and generate consistent figures.
-License: MIT
+Description: This package aims to automatically process Fluorescence Recovery After Photobleaching (FRAP) data and generate consistent, publishable figures. The automation would bring down the hour-long routine work to a few seconds for researchers that often do FRAP experiments. Note: this package does not replace ImageJ (or its equivalance) in raw image quantification.
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

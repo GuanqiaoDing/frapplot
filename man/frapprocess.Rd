@@ -12,7 +12,8 @@ frapprocess(rawdata_dir, time_points = seq(0, 145, 5))
 \item{time_points}{A vector of time points (in second) that match raw data.}
 }
 \value{
-The function has no return value. Instead, it generates output files:
+Results used for the plot as a list.
+It also generates output files:
 \itemize{
 \item One file for each group that contains normalized data.
 \item One summary file of the sample means.
@@ -21,13 +22,18 @@ The function has no return value. Instead, it generates output files:
 }
 }
 \description{
-Takes quantified data from ImageJ, perform calculations and non-linear curve fitting. The raw data is organized as below:
+Takes time-lapse data from ImageJ after the intensity quantification, perform normalization, calculations and non-linear curve fitting. The results are written to output files and returned to be used for \code{\link[=frapplot]{frapplot()}}.
+The raw data is organized as below, which is complied with the regular practice when processing imageJ time-lapse data by hand:
 \itemize{
-\item There is a main folder
-\item Each group (control or experimental) is in a subfolder
-\item In each subfolder, there are n files for individual samples where n = sample size
+\item There is a main folder for the experiment (rawdata direcotry)
+\item Each group (e.g. control, mutant1, mutant2, etc.) is in a subfolder
+\item In each subfolder, there are multiple ".txt" files for individual samples where the number equals to the sample size (the function uses ".txt" as a pattern to read all relavant files)
+\item In each file, the first value is the fluorecent intensity before the bleach, followed by the time-lapse values, one value per line
 }
 }
-\seealso{
-Find more about FRAP, input data formats and methods used for the processing at the \href{https://github.com/GuanqiaoDing}{Github page}.
+\examples{
+\dontrun{
+info <- frapprocess("~/experiment/rawdata")
+frapplot("name1", "name2", info)
+}
 }

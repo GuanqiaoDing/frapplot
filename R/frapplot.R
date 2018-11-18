@@ -1,14 +1,27 @@
-#' Plot FRAP data of two samples
+#' Plot FRAP data of two selected groups
 #'
-#' @description Takes in group names (e.g. control, mutant, etc.) and plot their data. Note: [frapprocess()] needs to run and process the data first.
+#' @description Takes in group names (e.g. control, mutant, etc.) and plot their data, which has a consistent and publishable format. Note: [frapprocess()] needs to run and process the data first.
 #' @param control Name of the control.
 #' @param mutant Name of the mutant.
+#' @param info Token information returned by [frapprocess()].
 #' @return The function has no return value. Instead, it outputs the plot as a pdf file.
-#' @seealso Find more about FRAP, input data formats and methods used for the processing at the [Github page](https://github.com/GuanqiaoDing).
+#' @examples
+#' \dontrun{
+#' info <- frapprocess("~/experiment/rawdata")
+#' frapplot("name1", "name2", info)
+#' }
 #' @export
 
-frapplot <- function(control, mutant){
+frapplot <- function(control, mutant, info){
+  #retrieve token information from frapprocess
+  x <- info[[1]]
+  FRAPdata <- info[[2]]
+  sample_means <- info[[3]]
+  sample_sd <- info[[4]]
+  mod <- info[[5]]
+  output_dir <- info[[6]]
 
+  #set directory and file
   setwd(output_dir)
   filename <- paste(control, "_", mutant, ".pdf", sep = "")
   pdf(filename, width = 8, height = 6)
@@ -53,5 +66,4 @@ frapplot <- function(control, mutant){
          bty = 'n', cex = 1.5)
 
   dev.off()
-
 }

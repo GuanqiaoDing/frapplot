@@ -2,21 +2,26 @@
 % Please edit documentation in R/frapplot.R
 \name{frapplot}
 \alias{frapplot}
-\title{Plot FRAP data of two samples}
+\title{Plot FRAP data of two selected groups}
 \usage{
-frapplot(control, mutant)
+frapplot(control, mutant, info)
 }
 \arguments{
 \item{control}{Name of the control.}
 
 \item{mutant}{Name of the mutant.}
+
+\item{info}{Token information returned by \code{\link[=frapprocess]{frapprocess()}}.}
 }
 \value{
 The function has no return value. Instead, it outputs the plot as a pdf file.
 }
 \description{
-Takes in group names (e.g. control, mutant, etc.) and plot their data. Note: \code{\link[=frapprocess]{frapprocess()}} needs to run and process the data first.
+Takes in group names (e.g. control, mutant, etc.) and plot their data, which has a consistent and publishable format. Note: \code{\link[=frapprocess]{frapprocess()}} needs to run and process the data first.
 }
-\seealso{
-Find more about FRAP, input data formats and methods used for the processing at the \href{https://github.com/GuanqiaoDing}{Github page}.
+\examples{
+\dontrun{
+info <- frapprocess("~/experiment/rawdata")
+frapplot("name1", "name2", info)
+}
 }
