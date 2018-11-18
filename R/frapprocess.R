@@ -23,7 +23,6 @@
 
 frapprocess <- function(rawdata_dir, time_points = seq(0, 145, 5)) {
   #set working directory
-  setwd("~")
   setwd(rawdata_dir)
 
   #(sub)folder_names means group names, e.g. control, mutant1, mutant2

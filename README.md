@@ -1,4 +1,3 @@
-
 # Automatic Data Processing and Visualization for FRAP
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
@@ -9,7 +8,8 @@ FRAP image courtesy of [Dr. Michael Rosen's Lab](https://www.utsouthwestern.edu/
 (The top-left puncta is the targeted area.)
 
 Generates consistent high-resolution figures that are publishable: <br/>
-![Output figure demo](./data/img/Demo_Plot.jpg)
+![Output figure demo](./data/img/Demo_Plot.jpg) <br/>
+[Full size files](./data/example/output)
 
 ## Installation
 In the R or Rstudio console,
@@ -44,6 +44,7 @@ info <- frapprocess (rawdata_dir =  "~/myproject/experiment1/rawdata", time_poin
 frapplot ("Control", "Mutant1", info)
 frapplot ("Control", "Mutant2", info)
 ```
+
 Note:
 - Make sure the path of the rawdata directory is correct;
 - Make sure the names (case-sensitive) you provided to `frapplot()` is correct;
@@ -58,8 +59,12 @@ Note:
 
 `frapplot()` generates a pdf file that compares two groups of choice.
 
-## Example Dataset
+## Test with Example Dataset
 An example dataset can be found [here](./data/example/rawdata), which is courtesy of [Dr. Michael Rosen's Lab](https://www.utsouthwestern.edu/labs/rosen/) and should never be used for other purposes.
+
+The code has been tested with the example dataset. Its outputs are as expected and can be found [here](./data/example/output). Note that only five samples are included in each group of this dataset for demonstration, but larger sample size is highly recommended for statistical robustness.
+
+The code has also passed R CMD check.
 
 ## Report Issues
 Please report any bugs or issues [here](https://github.com/GuanqiaoDing/frapplot/issues/new). The project also welcomes your contribution.
