@@ -1,0 +1,12 @@
+Package: frapplot
+Type: Package
+Title: Data Processing and Visualization for FRAP
+Version: 0.1
+Author: Guanqiao Ding <gding16@gmail.com>
+Maintainer: Guanqiao Ding <gding16@gmail.com>
+Description: Frapplot aims to automatically process Fluorescence Recovery After Photobleaching (FRAP) data after ImageJ quantification and generate consistent figures.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
