@@ -8,8 +8,8 @@ FRAP image courtesy of [Dr. Michael Rosen's Lab](https://www.utsouthwestern.edu/
 ![FRAP image](./data/img/Demo_FRAP.gif) <br/>
 (The top-left puncta is the targeted area.)
 
-Generates consistent figures: <br/>
-![Output figure](./data/img/Demo_Plot.png)
+Generates consistent high-resolution figures that are publishable: <br/>
+![Output figure demo](./data/img/Demo_Plot.jpg)
 
 ## Installation
 In the R or Rstudio console,
