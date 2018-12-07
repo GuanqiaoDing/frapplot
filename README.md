@@ -1,5 +1,6 @@
 # Automatic Data Processing and Visualization for FRAP
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+[![Build Status](https://travis-ci.org/GuanqiaoDing/frapplot.svg?branch=master)](https://travis-ci.org/GuanqiaoDing/frapplot)
 
 This R package aims to automatically process Fluorescence Recovery After Photobleaching (FRAP) data and generate consistent, publishable figures. The automation would bring down the hour-long routine work to a few seconds for researchers that often do FRAP experiments. Note: this package does not replace ['ImageJ'](https://imagej.nih.gov/ij/) (or other image quantification tools) in raw image quantification.
 
@@ -29,7 +30,7 @@ library(frapplot)
 In the R or Rstudio console:
 ```
 \# example use of frapprocess and frapplot
-\# after [preprocessing](./data-raw/preprocess.R)
+\# after the preprocessing (refer to ./data-raw/preprocess.R)
 load("data/example_dataset.rda")
 info <- frapprocess(example_dataset, seq(0, 145, 5))
 
