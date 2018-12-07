@@ -11,17 +11,14 @@ frapplot(control, mutant, info)
 
 \item{mutant}{Name of the mutant.}
 
-\item{info}{Token information returned by \code{\link[=frapprocess]{frapprocess()}}.}
-}
-\value{
-The function has no return value. Instead, it outputs the plot as a pdf file.
+\item{info}{Returned information from \code{\link[=frapprocess]{frapprocess()}}.}
 }
 \description{
-Takes in group names (e.g. control, mutant, etc.) and plot their data, which has a consistent and publishable format. Note: \code{\link[=frapprocess]{frapprocess()}} needs to run and process the data first.
+Plot FRAP data of any two groups (e.g. control and mutant) in a consistent and publishable format.
 }
 \examples{
-\dontrun{
-info <- frapprocess("~/experiment/rawdata")
-frapplot("name1", "name2", info)
-}
+# after load("data/example_dataset.rda")
+info <- frapprocess(example_dataset, seq(0, 145, 5))
+frapplot("control", "mut2", info)
+
 }

@@ -1,39 +1,37 @@
 #' Plot FRAP data of two selected groups
 #'
-#' @description Takes in group names (e.g. control, mutant, etc.) and plot their data, which has a consistent and publishable format. Note: [frapprocess()] needs to run and process the data first.
+#' @description Plot FRAP data of any two groups (e.g. control and mutant) in a consistent and publishable format.
 #' @param control Name of the control.
 #' @param mutant Name of the mutant.
-#' @param info Token information returned by [frapprocess()].
-#' @return The function has no return value. Instead, it outputs the plot as a pdf file.
+#' @param info Returned information from [frapprocess()].
+#'
 #' @examples
-#' \dontrun{
-#' info <- frapprocess("~/experiment/rawdata")
-#' frapplot("name1", "name2", info)
-#' }
+#' # after load("data/example_dataset.rda")
+#' info <- frapprocess(example_dataset, seq(0, 145, 5))
+#' frapplot("control", "mut2", info)
+#'
 #' @export
 
 frapplot <- function(control, mutant, info){
-  #retrieve token information from frapprocess
-  x <- info[[1]]
-  FRAPdata <- info[[2]]
-  sample_means <- info[[3]]
-  sample_sd <- info[[4]]
-  mod <- info[[5]]
-  output_dir <- info[[6]]
+  # retrieve information from frapprocess
+  x <- info$time_points
+  summary <- info$summary
+  sample_means <- info$sample_means
+  sample_sd <- info$sample_sd
+  mod <- info$model
 
-  #set directory and file
-  setwd(output_dir)
+  # create file
   filename <- paste(control, "_", mutant, ".pdf", sep = "")
   pdf(filename, width = 8, height = 6)
 
-  index1 <- which(FRAPdata$sample_names == control)
-  index2 <- which(FRAPdata$sample_names == mutant)
+  index1 <- which(summary$group_names == control)
+  index2 <- which(summary$group_names == mutant)
   y1 <- sample_means[, index1]
   y2 <- sample_means[, index2]
 
   par(mar=c(5, 5, 3, 3))
 
-  #plot data points and axis label
+  # plot data points and axis label
   plot(x, y1,
        pch = 21, bg = 'black', col = 'black',
        axes = FALSE, xlab = "Time (s)", ylab = "Fractional Recovery",
@@ -41,14 +39,14 @@ frapplot <- function(control, mutant, info){
        mgp = c(2, 1, 0), cex.axis = 1.2)
   points(x, y2, pch = 21, bg = 'blue', col = 'blue')
 
-  #plot axes
+  # plot axes
   axis(1, seq(0, 150, 25), tck = -0.02,
        cex.axis = 1.2, mgp = c(2, 1, 0), pos = 0)
   axis(2, seq(0, 1, 0.2), c("0", "0.2", "0.4", "0.6", "0.8", "1.0"),
        tck = -0.02, cex.axis = 1.2,
        mgp = c(2, 1, 0), pos = 0, las = 1)
 
-  #plot error bars
+  # plot error bars
   upper <- sample_means + sample_sd
   lower <- sample_means - sample_sd
   arrows(x, upper[, index1], x, lower[, index1],
@@ -56,11 +54,11 @@ frapplot <- function(control, mutant, info){
   arrows(x, upper[, index2], x, lower[, index2],
          length = 0.05, angle = 90, code = 3, lwd = 1.5, col = 'blue')
 
-  #plot fitted curves
+  # plot fitted curves
   lines(x, predict(mod[[index1]], list(x)), lwd = 2, col = 'black')
   lines(x, predict(mod[[index2]], list(x)), lwd = 2, col = 'blue')
 
-  #plot legend
+  # plot legend
   legend(x = 5, y = 1.05, legend = c(control, mutant),
          lty = c(1,1), lwd = 2, pch = c(20, 20), col = c('black', 'blue'),
          bty = 'n', cex = 1.5)

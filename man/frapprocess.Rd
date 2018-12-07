@@ -4,36 +4,30 @@
 \alias{frapprocess}
 \title{Process FRAP data}
 \usage{
-frapprocess(rawdata_dir, time_points = seq(0, 145, 5))
+frapprocess(ds, time_points)
 }
 \arguments{
-\item{rawdata_dir}{Absolute or relative path of the rawdata directory.}
+\item{ds}{A dataset that contains FRAP data for multiple experiment groups}
 
-\item{time_points}{A vector of time points (in second) that match raw data.}
+\item{time_points}{A vector of time points (in second) that the experiment uses, e.g. 0, 5, 10, ....}
 }
 \value{
-Results used for the plot as a list.
-It also generates output files:
+A list of results:
 \itemize{
-\item One file for each group that contains normalized data.
-\item One summary file of the sample means.
-\item One summary file of the sample standard deviations.
-\item One summary file of the parameters/results: ymax, ymin, k, halftime, tau, total_recovery, total_recovery_sd.
+\item $time_points: a vector of time points
+\item $summary: summary of the analysis
+\item $sample_means: a matrix of sample means, nrow = num of time points, ncol = sample size
+\item $sample_sd: a matrix of standard deviations, nrow = num of time points, ncol = sample size
+\item $model: result of non-linear regression model
 }
 }
 \description{
-Takes time-lapse data from ImageJ after the intensity quantification, perform normalization, calculations and non-linear curve fitting. The results are written to output files and returned to be used for \code{\link[=frapplot]{frapplot()}}.
-The raw data is organized as below, which is complied with the regular practice when processing imageJ time-lapse data by hand:
-\itemize{
-\item There is a main folder for the experiment (rawdata direcotry)
-\item Each group (e.g. control, mutant1, mutant2, etc.) is in a subfolder
-\item In each subfolder, there are multiple ".txt" files for individual samples where the number equals to the sample size (the function uses ".txt" as a pattern to read all relavant files)
-\item In each file, the first value is the fluorecent intensity before the bleach, followed by the time-lapse values, one value per line
-}
+Normalize and analyze FRAP data. Perform non-linear regression and calculate ymax, ymin, k, halftime, tau, total_recovery, total_recovery_sd.
+
+Reference: Brian L. Sprague, et al. Analysis of Binding Reactions by Fluorescence Recovery after Photobleaching. Biophys J (2004) \url{https://doi.org/10.1529/biophysj.103.026765}
 }
 \examples{
-\dontrun{
-info <- frapprocess("~/experiment/rawdata")
-frapplot("name1", "name2", info)
-}
+# after load("data/example_dataset.rda")
+info <- frapprocess(example_dataset, seq(0, 145, 5))
+
 }
