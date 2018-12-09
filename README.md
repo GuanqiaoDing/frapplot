@@ -9,29 +9,31 @@ This R package aims to automatically process Fluorescence Recovery After Photobl
 
 FRAP image courtesy of [Dr. Michael Rosen's Lab](https://www.utsouthwestern.edu/labs/rosen/):
 
-![FRAP image](./img/Demo_FRAP.gif)
+<img src="img/Demo_FRAP.gif" alt="FRAP image" width="200px">
 
 (The top-left puncta is the targeted area.)
 
-![Method](./img/Demo_Method.png)
+<img src="img/Demo_Method.png" alt="Method" width="500px">
 
 ## Features
 
-- Batch calculations and regressions for all the groups from the dataset and summarize the results by group names.
+- Batch calculations and regressions for all the groups from the dataset and summarize the results by group names in a dataframe:
 
-![Summary result demo](./img/Demo_Result.png)
+<img src="img/Demo_Result.png" alt="Summary result demo">
 
-- Access details about the regression of individual groups by simple indexing.
+- Access details about the regression of individual groups by simple indexing:
 
-![Access details demo](./img/Demo_Detail.png)
+<img src="img/Demo_Detail.png" alt="Access details demo" width="500px">
 
 - Generate figures in a consistent and publishable format:
 
-![Output figure demo](./img/Demo_Plot.jpg)
+<img src="img/Demo_Plot.jpg" alt="Output figure demo">
 
 - Compare results of any two groups with a single command.
 
-## Installation
+- Have tested with a real-world dataset from a FRAP experiment.
+
+## Install
 
 ```R
 # if "devtools" has not been installed
