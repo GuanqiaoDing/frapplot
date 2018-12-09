@@ -15,10 +15,11 @@ frapprocess(ds, time_points)
 A list of results:
 \itemize{
 \item $time_points: a vector of time points
-\item $summary: summary of the analysis
+\item $summary: summary of the regression
 \item $sample_means: a matrix of sample means, nrow = num of time points, ncol = sample size
 \item $sample_sd: a matrix of standard deviations, nrow = num of time points, ncol = sample size
-\item $model: result of non-linear regression model
+\item $model: a list of models for each group from the non-linear regression
+\item $details: details of the regression for each group
 }
 }
 \description{
