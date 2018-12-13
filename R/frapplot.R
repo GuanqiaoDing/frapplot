@@ -1,5 +1,8 @@
 #' Plot FRAP data of two selected groups
-#'
+#' 
+#' @importFrom grDevices dev.off pdf
+#' @importFrom graphics arrows axis legend lines par plot points
+#' 
 #' @description Plot FRAP data of any two groups (e.g. control and mutant) in a consistent and publishable format.
 #' @param control Name of the control.
 #' @param mutant Name of the mutant.
@@ -13,6 +16,7 @@
 #' @export
 
 frapplot <- function(control, mutant, info){
+  
   # retrieve information from frapprocess
   x <- info$time_points
   summary <- info$summary
@@ -20,6 +24,14 @@ frapplot <- function(control, mutant, info){
   sample_sd <- info$sample_sd
   mod <- info$model
 
+  # validate input
+  if(!(control %in% summary$group_names)) {
+    stop("Name of the control provided (first argument) is not found.")
+  }
+  else if(!(mutant %in% summary$group_names)) {
+    stop("Name of the mutant provided (second argument) is not found.")
+  }
+    
   # create file
   filename <- paste(control, "_", mutant, ".pdf", sep = "")
   pdf(filename, width = 8, height = 6)

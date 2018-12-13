@@ -1,0 +1,22 @@
+frapplot 0.1.2
+----------------------------------------------------------------
+
+* Exclude certain sample(s) from the dataset by the exclude() function.
+* frapprocess() and frapplot() now try to validate the input before their execution. Raise Error with specific instructions when input is not valid.
+
+
+frapplot 0.1.1
+----------------------------------------------------------------
+
+* Include details of the regression results in the return value of frapprocess().
+
+
+frapplot 0.1.0
+----------------------------------------------------------------
+Features:
+
+* Batch calculations and regressions for all the groups from the dataset and summarize the results by group names in a dataframe.
+* Access details about the regression of individual groups by simple indexing.
+* Generate figures in a consistent and publishable format.
+* Compare results of any two groups with a single command.
+* Have tested with a real-world dataset from a FRAP experiment.

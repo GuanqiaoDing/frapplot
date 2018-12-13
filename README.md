@@ -19,7 +19,7 @@ FRAP image courtesy of [Dr. Michael Rosen's Lab](https://www.utsouthwestern.edu/
 
 - Batch calculations and regressions for all the groups from the dataset and summarize the results by group names in a dataframe:
 
-<img src="img/Demo_Result.png" alt="Summary result demo">
+<img src="img/Demo_Result.png" alt="Summary result demo" width="700px">
 
 - Access details about the regression of individual groups by simple indexing:
 
@@ -32,6 +32,18 @@ FRAP image courtesy of [Dr. Michael Rosen's Lab](https://www.utsouthwestern.edu/
 - Compare results of any two groups with a single command.
 
 - Have tested with a real-world dataset from a FRAP experiment.
+
+## Updates in Version 0.1.2
+
+- Exclude certain sample(s) from the dataset (e.g. poor quality due to technical reasons)
+```R
+# remove sample(column) 1 and 3 from "mut1" data 
+modified <- exclude(example_dataset, "mut1", c(1,3))
+```
+
+- `frapprocess()` and `frapplot()` now validate the input before execution. Raise Error when input is not valid and provide specific instructions.
+
+View [update history](./NEWS).
 
 ## Install
 

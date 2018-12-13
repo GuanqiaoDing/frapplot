@@ -1,5 +1,7 @@
 #' Process FRAP data
 #'
+#' @importFrom stats coef lm nls predict sd
+#' 
 #' @description
 #' Normalize and analyze FRAP data. Perform non-linear regression and calculate ymax, ymin, k, halftime, tau, total_recovery, total_recovery_sd.
 #'
@@ -24,7 +26,31 @@
 #' @export
 
 frapprocess <- function(ds, time_points) {
-
+  
+  # validate input
+  if(!is.list(ds) || is.null(names(ds))) {
+    stop("Dataset should be a list of matrices containing data of each group. 
+         Each item in the list has a name that identifies the group.")
+  } 
+  else {
+    len.x <- length(time_points)
+    for (i in 1: length(ds)) {
+      name <- names(ds)[i]
+      len <- length(ds[[i]])
+      
+      if(!is.matrix(ds[[i]])) {
+        stop(sprintf("Each item in the list is a matrix. 
+            Each column contains data from one cell/sample.
+            The %dth item of the list named %s is not a matrix.", i, name))
+      }
+      else if(len %% (len.x+1) != 0) {
+        stop(sprintf("The number of rows in the %dth item of the list named %s
+            does not match the length of the time_points provided.
+            The matrix needs %d rows which is 1 + length(time_points).", i, name, len.x+1))
+      }
+    }
+  }
+  
   group_names <- names(ds)
   num <- length(group_names)
 
