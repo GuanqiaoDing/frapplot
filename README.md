@@ -74,8 +74,8 @@ info$summary
 info$details
 
 # plot any two groups as desired
-frapplot ("Control", "Mutant1", info)
-frapplot ("Control", "Mutant2", info)
+frapplot ("output_dir", "control", "mut1", info)
+frapplot ("output_dir", "control", "mut2", info)
 ```
 
 Note:
@@ -102,7 +102,7 @@ Note:
 
 - info$details: details of the regression for each group
 
-`frapplot()` generates a pdf file that compares two groups of choice.
+`frapplot()` generates a pdf file that compares two groups of choice in the provided directory.
 
 ## Test with An Example Dataset
 

@@ -1,3 +1,8 @@
+frapplot 0.1.3
+----------------------------------------------------------------
+* User need to specify the path of output directory to avoid potential conflicts of the file names.
+
+
 frapplot 0.1.2
 ----------------------------------------------------------------
 

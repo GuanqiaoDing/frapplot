@@ -1,7 +1,7 @@
 Package: frapplot
 Type: Package
 Title: Automatic Data Processing and Visualization for FRAP
-Version: 0.1.2
+Version: 0.1.3
 Author: Guanqiao Ding <gding16@gmail.com>
 Maintainer: Guanqiao Ding <gding16@gmail.com>
 Description: Automatically process Fluorescence Recovery After Photobleaching (FRAP) data and generate consistent, publishable figures. Note: this package does not replace 'ImageJ' (or its equivalence) in raw image quantification.

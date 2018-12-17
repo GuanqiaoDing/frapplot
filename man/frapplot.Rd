@@ -4,9 +4,11 @@
 \alias{frapplot}
 \title{Plot FRAP data of two selected groups}
 \usage{
-frapplot(control, mutant, info)
+frapplot(path, control, mutant, info)
 }
 \arguments{
+\item{path}{Path of the output directory}
+
 \item{control}{Name of the control.}
 
 \item{mutant}{Name of the mutant.}
@@ -19,6 +21,6 @@ Plot FRAP data of any two groups (e.g. control and mutant) in a consistent and p
 \examples{
 # after load("data/example_dataset.rda")
 info <- frapprocess(example_dataset, seq(0, 145, 5))
-frapplot("control", "mut2", info)
+frapplot(tempdir(), "control", "mut2", info)
 
 }
