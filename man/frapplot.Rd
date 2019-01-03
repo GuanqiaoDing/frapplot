@@ -19,7 +19,6 @@ frapplot(path, control, mutant, info)
 Plot FRAP data of any two groups (e.g. control and mutant) in a consistent and publishable format.
 }
 \examples{
-# after load("data/example_dataset.rda")
 info <- frapprocess(example_dataset, seq(0, 145, 5))
 frapplot(tempdir(), "control", "mut2", info)
 

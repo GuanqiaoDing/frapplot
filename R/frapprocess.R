@@ -1,11 +1,9 @@
 #' Process FRAP data
 #'
 #' @importFrom stats coef lm nls predict sd
-#' 
+#'
 #' @description
 #' Normalize and analyze FRAP data. Perform non-linear regression and calculate ymax, ymin, k, halftime, tau, total_recovery, total_recovery_sd.
-#'
-#' Reference: Brian L. Sprague, et al. Analysis of Binding Reactions by Fluorescence Recovery after Photobleaching. Biophys J (2004) <https://doi.org/10.1529/biophysj.103.026765>
 #'
 #' @param ds A dataset that contains FRAP data for multiple experiment groups
 #' @param time_points A vector of time points (in second) that the experiment uses, e.g. 0, 5, 10, ....
@@ -20,26 +18,25 @@
 #'   * $details: details of the regression for each group
 #'
 #' @examples
-#' # after load("data/example_dataset.rda")
 #' info <- frapprocess(example_dataset, seq(0, 145, 5))
 #'
 #' @export
 
 frapprocess <- function(ds, time_points) {
-  
+
   # validate input
   if(!is.list(ds) || is.null(names(ds))) {
-    stop("Dataset should be a list of matrices containing data of each group. 
+    stop("Dataset should be a list of matrices containing data of each group.
          Each item in the list has a name that identifies the group.")
-  } 
+  }
   else {
     len.x <- length(time_points)
     for (i in 1: length(ds)) {
       name <- names(ds)[i]
       len <- length(ds[[i]])
-      
+
       if(!is.matrix(ds[[i]])) {
-        stop(sprintf("Each item in the list is a matrix. 
+        stop(sprintf("Each item in the list is a matrix.
             Each column contains data from one cell/sample.
             The %dth item of the list named %s is not a matrix.", i, name))
       }
@@ -50,7 +47,7 @@ frapprocess <- function(ds, time_points) {
       }
     }
   }
-  
+
   group_names <- names(ds)
   num <- length(group_names)
 

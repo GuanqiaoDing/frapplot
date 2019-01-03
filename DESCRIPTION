@@ -4,7 +4,7 @@ Title: Automatic Data Processing and Visualization for FRAP
 Version: 0.1.3
 Author: Guanqiao Ding <gding16@gmail.com>
 Maintainer: Guanqiao Ding <gding16@gmail.com>
-Description: Automatically process Fluorescence Recovery After Photobleaching (FRAP) data and generate consistent, publishable figures. Note: this package does not replace 'ImageJ' (or its equivalence) in raw image quantification.
+Description: Automatically process Fluorescence Recovery After Photobleaching (FRAP) data and generate consistent, publishable figures. Note: this package does not replace 'ImageJ' (or its equivalence) in raw image quantification. Some references about the methods: Sprague, Brian L. (2004) <doi:10.1529/biophysj.103.026765>; Day, Charles A. (2012) <doi:10.1002/0471142956.cy0219s62>.
 Depends: R (>= 2.10)
 Imports:
   grDevices,

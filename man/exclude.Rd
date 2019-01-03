@@ -20,7 +20,6 @@ Modified dataset in the same format.
 If certain samples are of poor quality, use this function to exclude them from the dataset.
 }
 \examples{
-# after load("data/example_dataset.rda")
 ds <- exclude(example_dataset, group = "mut1", cols = c(1,3))
 
 }

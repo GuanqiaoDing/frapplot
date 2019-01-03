@@ -24,11 +24,8 @@ A list of results:
 }
 \description{
 Normalize and analyze FRAP data. Perform non-linear regression and calculate ymax, ymin, k, halftime, tau, total_recovery, total_recovery_sd.
-
-Reference: Brian L. Sprague, et al. Analysis of Binding Reactions by Fluorescence Recovery after Photobleaching. Biophys J (2004) \url{https://doi.org/10.1529/biophysj.103.026765}
 }
 \examples{
-# after load("data/example_dataset.rda")
 info <- frapprocess(example_dataset, seq(0, 145, 5))
 
 }
