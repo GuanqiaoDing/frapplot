@@ -1,7 +1,9 @@
 # Automatic Data Processing and Visualization for FRAP
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/frapplot)](https://cran.r-project.org/web/packages/frapplot/index.html)
 [![Build Status](https://travis-ci.org/GuanqiaoDing/frapplot.svg?branch=master)](https://travis-ci.org/GuanqiaoDing/frapplot)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 
 This R package aims to automatically process Fluorescence Recovery After Photobleaching (FRAP) data and generate consistent, publishable figures. The automation would bring down the hour-long routine work to a few seconds for researchers that often do FRAP experiments. Note: this package does not replace ['ImageJ'](https://imagej.nih.gov/ij/) (or other image quantification tools) in raw image quantification.
 
@@ -48,11 +50,14 @@ View [update history](./NEWS).
 ## Install
 
 ```R
-# if "devtools" has not been installed
-install.packages("devtools")
+# Install frapplot from CRAN:
+install.packages("frapplot")
 
-# install and load frapplot
+# Install frapplot from Github:
+install.packages("devtools")
 devtools::install_github("GuanqiaoDing/frapplot")
+
+# Load frapplot
 library(frapplot)
 
 # bring up the manual
